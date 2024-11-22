@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 #define int long long
 using namespace std;
-int n,a[5005],ans;
+int n,a[8505],ans;
 main()
 {
     ios_base::sync_with_stdio(0);
