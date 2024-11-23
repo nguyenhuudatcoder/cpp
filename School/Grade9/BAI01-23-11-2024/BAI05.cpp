@@ -34,7 +34,7 @@ void farthest_bus_stop(int i, int &u)
         int y = u + 1; // bến gần nhất bên phải, vì b[u] là số lớn nhất <=a[i] nên b[u+1]>a[i]
         if (y < j)
             ans += min(1ll * t * min(a[i] - b[u], b[y] - a[i]) + B + 1ll * t * (a[i + 1] - b[j]), 1ll*t * (a[i + 1] - a[i]));
-        else // vì y trùng với j nên là chỉ còn cách chọn b[u]
+        else // vì y trùng với j nên là chỉ còn cách chọn b[u]2
             ans += min(1ll*t * (a[i] - b[u]) + B + t * (a[i + 1] - b[j]), 1ll*t * (a[i + 1] - a[i]));
         u = j;
     }
@@ -72,5 +72,6 @@ kien()
     for (int i = 1; i <= p; i++)
         cin >> b[i];
     b[p + 1] = n; // bến ở Khu giải trí
+    sort(b,b+p+2);
     bai05();
 }
