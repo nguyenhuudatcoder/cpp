@@ -43,7 +43,7 @@ kien()
     {
         if (n % i == 0)
         {
-            s =( s + (i + 1ll*(n / i)))%mod;
+            s =( s + (i + 1ll*(n / i)));
             checks += i + 1ll*(n / i);
         }
         if (1ll * i * i == n)
