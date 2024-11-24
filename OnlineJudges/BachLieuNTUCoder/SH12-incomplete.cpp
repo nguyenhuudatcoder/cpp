@@ -6,7 +6,7 @@
 #define mod 1000000007
 using namespace std;
 int n;
-long long ans, a[10000005], k;
+long long ans, a[50000005], k;
 long long x;
 void sh12()
 {
@@ -15,27 +15,20 @@ void sh12()
         cout << 0;
         exit(0);
     }
-    long long s;
+    ans = k - k % x;
+    // long long s;
     // cout<<m<<"\n";
     for (long long i = 2; i <= sqrt(x); i++)
         if (x % i == 0)
         {
-            s = k / i;
-            s = s * i;
-            ans = max(ans, s);
-            while (x % i == 0)
-                x /= i;
+            ans = max(ans, k - k % i);
+            ans = max(ans, k - k % (x / i));
         }
-    if (x > 1)
-    {
-        s = k / x;
-        s = s * x;
-        ans = max(ans, s);
-    }
-    if (ans == 1)
-        ans = 0;
-    else
-        cout << ans;
+
+    // if (ans == 1)
+    //     ans = 0;
+    // else
+    cout << ans;
     // cout<<__gcd(12,0);
 }
 kien()
@@ -51,12 +44,12 @@ kien()
     cin >> n >> k;
     for (int i = 0; i < n; i++)
         cin >> a[i];
-    x = a[0];
-    for (int i = 1; i < n; i++)
+    x = __gcd(a[0], a[1]);
+    for (int i = 2; i < n; i++)
         x = __gcd(x, a[i]);
-    // if(x==1)
+    // if (x == 1)
     // {
-    //     cout<<0;
+    //     cout << 0;
     //     exit(0);
     // }
     sh12();
