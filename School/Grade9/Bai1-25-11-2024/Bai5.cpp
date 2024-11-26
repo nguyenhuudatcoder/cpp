@@ -22,20 +22,20 @@ void waiting(long long a)
     while (l <= r)
     {
         int m = (l + r) / 2;
-        if (c[m].first <= a && c[m].second > a)
+        if (c[m].first <= a && c[m].second > a) //nếu nằm trong thời gian thì in ra luôn
         {
             cout << 0 << "\n";
             return;
         }
-        else if (c[m].first > a)
+        else if (c[m].first > a)    //thời gian mở cửa thời gian của cửa hàng tiếp theo
         {
-            r = m - 1;
-            ans = m;
+            r = m - 1;  //đi tìm thời gian đóng cửa sau
+            ans = m;    //lưu vị trí của cửa hàng này
         }
         else if (c[m].second <= a)
             l = m + 1;
     }
-    if (ans == -1)
+    if (ans == -1)  // không tìm thấy cửa hàng nào
         cout << -1 << "\n";
     else
     {
@@ -48,22 +48,27 @@ void shop()
     for (int i = 0; i < tam.size(); i++)
         if (tam[i].first != tam[i + 1].first || i == tam.size() - 1)
         {
-            c.push_back(make_pair(tam[i].first, tam[i].second));
+            c.push_back(make_pair(tam[i].first, tam[i].second));    //lấy cửa hàng đầu tiên   (1)
             j = i + 1;
             break;
         }
-    while (j < tam.size())
+    while (j < tam.size())  //nếu thiếu (1) thì c[c.size()-1] không tồn tại -> runtime
     {
         if (tam[j].first >= c[c.size() - 1].second)
         {
-            while (tam[j].first == tam[j + 1].first)
+            while (tam[j].first == tam[j + 1].first)    //ko có cũng được
                 j++;
             c.push_back(make_pair(tam[j].first, tam[j].second));
         }
-        else if (tam[j].second > c[c.size() - 1].second)
+        else if (tam[j].second > c[c.size() - 1].second)    //nếu cửa hàng nằm trong thời gian của cửa hàng trước thì lấy thời gian đóng muộn hơn
+            /*
+                ví dụ:2 6, 5 7
+                thì thời gian mở cửa là 2 7
+            */
             c[c.size() - 1].second = tam[j].second;
         j++;
     }
+    //sau khi sort thì sẽ được cửa hàng liên tiếp, LIQ
 }
 kien()
 {
@@ -81,7 +86,7 @@ kien()
         cin >> a >> b;
         tam.push_back(make_pair(a, b));
     }
-    sort(tam.begin(), tam.end(), compare);
+    sort(tam.begin(), tam.end(), compare);  //sort để có thời gian theo thứ tự tăng dần
     shop();
     // for(int i=0;i<c.size();i++)
     //     cout<<c[i].first<<" "<<c[i].second<<"\n";

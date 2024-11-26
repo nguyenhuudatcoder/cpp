@@ -5,9 +5,8 @@
 #define kien main
 #define mod 1000000007
 using namespace std;
-int t;
 long long n;
-
+int x;
 kien()
 {
     // if(fopen(".inp","r"))
@@ -18,14 +17,6 @@ kien()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    cin>>t;
-    while(t--)
-    {
-        cin>>n;
-        long long m=sqrt(n);
-        if(m*m==n)
-            cout<<"LE\n";
-        else 
-            cout<<"CHAN\n";
-    }
+    cin>>n>>x;
+    cout<<1ll*((n+1)/2)*x;
 }
