@@ -5,17 +5,7 @@
 #define kien main
 #define mod 1000000007
 using namespace std;
-int l,r;
-int tcs(int n)
-{
-    int s=0;
-    while(n>0)
-    {
-        s+=n%10;
-        n/=10;
-    }
-    return s;
-}
+int ans,l,r;
 bool snt[10000005];
 void make_sieve()
 {
@@ -25,7 +15,6 @@ void make_sieve()
             for(int j=i*i;j<=r;j+=i)
                 snt[j]=1;
 }
-int ans;
 kien()
 {
     // if(fopen(".inp","r"))
@@ -39,10 +28,7 @@ kien()
     cin>>l>>r;
     make_sieve();
     for(int i=l;i<=r;i++)
-    {
         if(snt[i]==0)
-            if(snt[tcs(i)]==0)
-                cout<<i<<" ";
-    }
-
+            ans++;
+    cout<<ans;
 }
