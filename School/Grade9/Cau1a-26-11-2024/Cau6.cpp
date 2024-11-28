@@ -19,7 +19,7 @@ kien()
     cin.tie(0);
     cout.tie(0);
     cin >> t;
-    map<char, int> pos;
+    map<char, int> dem;
     while (t--)
     {
         ans = 0;
@@ -27,18 +27,16 @@ kien()
         s = ' ' + s;
         for (int i = 1; i < s.size(); i++)
         {
-            if (pos[s[i]] > 0)
+            dem[s[i]]++;
+            if (dem[s[i]] =2)
             {
-                ans += pos.size()-1;
-                pos.clear();
+                ans += 2;
+                dem.clear();
             }
-            else
-                pos[s[i]] = i;
         }
-        ans+=pos.size();
-        cout << ans << "\n";
-        // cout<<pos.size()<<"\n";
-        pos.clear();
+        cout <<s.size()- ans << "\n";
+        // cout<<dem.size()<<"\n";
+        dem.clear();
         // for(auto i:dem)
         //     cout<<i.second<<" ";
         // cout<<"\n";
