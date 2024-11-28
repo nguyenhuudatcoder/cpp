@@ -15,7 +15,7 @@ void find_the_smallest_top(long long x)
     while(l<=r)
     {
         int m=(l+r)/2;
-        if(top[m]>x)
+        if(top[m]>=x)
         {
             pos=m;
             r=m-1;

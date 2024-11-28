@@ -14,10 +14,12 @@ void times_of_spin(long long a, long long b)
         cout << 0 << "\n";
         return;
     }
-    long long ans = LLONG_MAX;
+    long long ans;
     // if (a > b)
     //     ans = a - b;
-    for (long long i = 1; i <= sqrt(a); i++)
+    ans=(b+a-1)/a;
+    ans=ans*a-b;
+    for (long long i = 2; i <= sqrt(a); i++)
     {
         if (a % i == 0)
         {
