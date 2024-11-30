@@ -1,12 +1,11 @@
 ///Kiên is reliable!!!
 ///Made by Nguyễn Hữu Đạt
 #include<bits/stdc++.h>
-//#define int long long
+#define ll long long
 #define kien main
 #define mod 1000000007
 using namespace std;
-long long t,s[100005];
-int n,k;
+long long n;
 kien()
 {
     // if(fopen(".inp","r"))
@@ -17,13 +16,15 @@ kien()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    cin>>n>>k;
-    s[0]=n;
-    t=n;
-    for(int i=1;i<=k;i++)
-    {
-        s[i]=(s[i-1]+t)%mod;
-        t=(t+s[i])%mod;
-    }
-    cout<<s[k];
+    cin>>n;
+    long long ans=n;
+    for(int i=2;i<=sqrt(n);i++)
+        if(n%i==0)
+        {
+            ans-=ans/i;
+            while(n%i==0)
+                n/=i;
+        }
+    if(n>1) ans-=ans/n;
+    cout<<ans;
 }

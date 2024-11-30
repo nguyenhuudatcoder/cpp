@@ -1,20 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
 int n, k;
-long long a[100005], m, ans;
+long long m, ans;
+string a[100005];
+int b[100005];
 map<int, int> dem;
-int modul(long long x)
+int modul(long long a)
 {
-    long long M = m;
+    long long b = m;
     long long t = 1;
-    while (M > 0)
+    while (b > 0)
     {
-        if (M % 2 == 1)
-            t = t * x% k;
-        x = x * x % k;
-        M /= 2;
+        if (b % 2 == 1)
+            t = t * a% k;
+        a = a * a % k;
+        b /= 2;
     }
     return t;
+}
+int get_number(string s)
+{
+    int ans=0;
+    for(int i=0;i<s.size();i++)
+        ans=(ans*10+s[i]-48)%k;
+    return ans;
 }
 main()
 {
@@ -24,9 +33,16 @@ main()
     cin >> n >> m >> k;
     for (int i = 0; i < n; i++)
         cin >> a[i];
+    // for (int i = 0; i < n; i++)
+    //     cout<< a[i]<<" ";
     for (int i = 0; i < n; i++)
     {
-        a[i] = modul(a[i]);
+        b[i] = get_number(a[i]);
+        // cout<<b[i]<<" ";
+    }
+    for (int i = 0; i < n; i++)
+    {
+        b[i] = modul(b[i]);
     }
     // for (int i = 0; i < n; i++)
     //     cout << a[i] << " ";
@@ -34,7 +50,7 @@ main()
     int s = 0;
     for (int i = 0; i < n; i++)
     {
-        s += a[i];
+        s += b[i];
         s %= k;
         ans += dem[s];
         dem[s]++;
