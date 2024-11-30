@@ -7,7 +7,7 @@
 using namespace std;
 int n;
 // bool save = 1;
-string ans = "0";
+string ans;
 string s;
 long double maxx;
 void sum(string a)
@@ -21,7 +21,7 @@ void sum(string a)
             m.push_back(a[i]);
             s += a[i] - 48;
         }
-    if (m.empty()==0)
+    if (m.empty() == 0)
     {
         // save = 0;
         if (1.0 * s / m.size() > maxx)
@@ -29,8 +29,6 @@ void sum(string a)
             maxx = 1.0 * s / m.size();
             ans = m;
         }
-        if(maxx==0&&ans=="0")
-            ans=m;
     }
 }
 kien()
@@ -49,5 +47,8 @@ kien()
         cin >> s;
         sum(s);
     }
-    cout << ans;
+    if (ans.empty())
+        cout << 0;
+    else
+        cout << ans;
 }
