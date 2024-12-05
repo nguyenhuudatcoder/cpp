@@ -6,7 +6,18 @@
 using namespace std;
 const ll inf=LLONG_MAX;
 const ll mod=1e9+7;
-ll a,b,c;
+int n;
+ll t;
+int getMax(ll n)
+{
+    int ans=0;
+    while(n>0)
+    {
+        ans=max(ans,(int)n%10);
+        n/=10;
+    }
+    return ans;
+}
 kien()
 {
     // if(fopen(".inp","r"))
@@ -17,15 +28,9 @@ kien()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    cin>>a>>b>>c;
-    ll ans=0;
-    a%=c;
-    while(b>0)
-    {
-        if(b&1)
-            ans=(ans+a)%c;
-        a=2*a%c;
-        b/=2;
-    }
-    cout<<ans;
+    cin>>n;
+    for(int i=1;i<=n;i++)
+        t+=1ll*i*(i+1)*(i+2);
+    int ans=getMax(t);
+    cout<<t<<"\n"<<ans;
 }
