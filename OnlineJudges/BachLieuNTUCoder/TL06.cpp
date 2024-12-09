@@ -1,4 +1,4 @@
-///Kiên is reliable!!!
+///Discipline > Motivation
 ///Made by Nguyễn Hữu Đạt
 #include<bits/stdc++.h>
 #define ll long long
@@ -6,8 +6,7 @@
 using namespace std;
 const ll inf=LLONG_MAX;
 const ll mod=1e9+7;
-int n;
-ll a[1000005],m[1000005],ans=-inf;
+ll n;
 kien()
 {
     // if(fopen(".inp","r"))
@@ -19,12 +18,20 @@ kien()
     cin.tie(0);
     cout.tie(0);
     cin>>n;
-    for(int i=0;i<n;i++)
-        cin>>a[i];
-    m[0]=a[0];
-    for(int i=1;i<n;i++)
-        m[i]=min(m[i-1],a[i]);
-    for(int i=1;i<n;i++)
-        ans=max(ans,a[i]-m[i-1]);
-    cout<<ans;
+    if(n==0) cout<<10;
+    else if(n<10) cout<<n;
+    else
+    {
+        string ans;
+        for(int i=9;i>=2;i--)
+        {
+            while(n%i==0)
+            {
+                ans=char(i+48)+ans;
+                n/=i;
+            }
+        }
+        if(ans.empty()==1||n>9) cout<<-1;
+        else cout<<ans;
+    }
 }
