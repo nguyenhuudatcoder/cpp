@@ -6,8 +6,7 @@
 using namespace std;
 const ll inf=LLONG_MAX;
 const ll mod=1e9+7;
-int n,a[100005],ans;
-int ans;
+int t,n,x;
 kien()
 {
     // if(fopen(".inp","r"))
@@ -18,11 +17,16 @@ kien()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    cin>>n;
-    for(int i=0;i<n;i++) cin>>a[i];
-    int l=0,r=0;
-    while(r<n)
+    cin>>t;
+    while(t--)
     {
-        
+        ll ans=1;
+        cin>>n;
+        for(int i=0;i<n;i++)
+        {
+            cin>>x;
+            ans=1ll*ans/__gcd(1ll*x,ans)*x%mod;
+        }
+        cout<<ans<<"\n";
     }
 }

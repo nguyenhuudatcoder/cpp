@@ -6,8 +6,7 @@
 using namespace std;
 const ll inf=LLONG_MAX;
 const ll mod=1e9+7;
-int n,a[100005],ans;
-int ans;
+ll n;
 kien()
 {
     // if(fopen(".inp","r"))
@@ -19,10 +18,5 @@ kien()
     cin.tie(0);
     cout.tie(0);
     cin>>n;
-    for(int i=0;i<n;i++) cin>>a[i];
-    int l=0,r=0;
-    while(r<n)
-    {
-        
-    }
+    cout<<(n+1)/2;
 }

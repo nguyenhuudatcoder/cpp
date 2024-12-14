@@ -6,8 +6,10 @@
 using namespace std;
 const ll inf=LLONG_MAX;
 const ll mod=1e9+7;
-int n,a[100005],ans;
-int ans;
+int n,x;
+ll ans;
+vector<int> a;
+unordered_map<int,int> dem;
 kien()
 {
     // if(fopen(".inp","r"))
@@ -19,10 +21,15 @@ kien()
     cin.tie(0);
     cout.tie(0);
     cin>>n;
-    for(int i=0;i<n;i++) cin>>a[i];
-    int l=0,r=0;
-    while(r<n)
+    for(int i=0;i<n;i++)
     {
-        
+        cin>>x;
+        if(dem[x]==0)
+            a.push_back(x);
+        dem[x]++;
     }
+    for(int i=0;i<a.size()-1;i++)
+        for(int j=i+1;j<a.size();j++)
+            ans+=dem[a[i]+a[j]];
+    cout<<ans;
 }

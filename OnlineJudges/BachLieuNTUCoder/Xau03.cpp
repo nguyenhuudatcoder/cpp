@@ -6,8 +6,7 @@
 using namespace std;
 const ll inf=LLONG_MAX;
 const ll mod=1e9+7;
-int n,a[100005],ans;
-int ans;
+string n;
 kien()
 {
     // if(fopen(".inp","r"))
@@ -18,11 +17,9 @@ kien()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    cin>>n;
-    for(int i=0;i<n;i++) cin>>a[i];
-    int l=0,r=0;
-    while(r<n)
-    {
-        
-    }
+    getline(cin,n);
+    int ans=0;
+    for(int i=0;i<n.size();i++)
+        if(n[i]>='0'&&n[i]<='9') ans++;
+    cout<<ans;
 }

@@ -6,8 +6,9 @@
 using namespace std;
 const ll inf=LLONG_MAX;
 const ll mod=1e9+7;
-int n,a[100005],ans;
-int ans;
+string s;
+bool pos[1000005];
+int dem;
 kien()
 {
     // if(fopen(".inp","r"))
@@ -18,11 +19,21 @@ kien()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    cin>>n;
-    for(int i=0;i<n;i++) cin>>a[i];
-    int l=0,r=0;
-    while(r<n)
+    getline(cin,s);
+    for(int i=s.size()-1;i>=0;i--)
     {
-        
+        if(s[i]=='#')
+            dem++;
+        else
+        {
+            if(dem>0)
+            {
+                pos[i]=1;
+                dem--;
+            }
+        }
     }
+    for(int i=0;i<s.size();i++)
+        if(pos[i]==0&&s[i]!='#')
+            cout<<s[i];
 }

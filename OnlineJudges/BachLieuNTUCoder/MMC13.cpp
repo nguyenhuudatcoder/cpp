@@ -1,4 +1,4 @@
-/// A game will be our childhood
+/// A game is our childhood
 /// Made by Nguyễn Hữu Đạt
 #include <bits/stdc++.h>
 #define ll long long
@@ -6,15 +6,8 @@
 using namespace std;
 const ll inf = LLONG_MAX;
 const ll mod = 1e9 + 7;
-int snt[1000005];
-void make_sieve()
-{
-    for (int i = 2; i <= 1e6; i++)
-        if (snt[i] == 0)
-            for (int j = i; j <= 1e6; j += i)
-                snt[j] = i;
-}
-int t, n;
+int n, a[200005];
+ll ans = inf;
 kien()
 {
     // if(fopen(".inp","r"))
@@ -25,11 +18,11 @@ kien()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    make_sieve();
-    cin >> t;
-    while (t--)
-    {
-        cin >> n;
-        cout << snt[n] << "\n";
-    }
+    cin >> n;
+    for (int i = 0; i < n; i++)
+        cin >> a[i];
+    sort(a, a + n);
+    for (int i = 1; i < n; i++)
+        ans = min(ans, 1ll*abs(a[i] - a[i - 1]));
+    cout << ans;
 }

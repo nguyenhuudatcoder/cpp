@@ -1,5 +1,3 @@
-/// Discipline > Motivation
-/// Made by Nguyễn Hữu Đạt
 #include <bits/stdc++.h>
 #define ll long long
 #define kien main
@@ -76,22 +74,14 @@ bool checkMegaPrime(int n)
 int n, m, a[100005], dem[100005];
 kien()
 {
-    // if(fopen(".inp","r"))
-    // {
-    // 	freopen(".inp","r",stdin);
-    // 	freopen(".out","w",stdout);
-    // }
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    // make_sieve();
     for(auto &i:prime)
     {
         superprime[i]=1;
         get_megaPrime(i);
     }
-    // for (auto i : superprime)
-    //     cout << i.first << "\n";
     cin >> n;
     for (int i = 0; i < n; i++)
         cin >> a[i];
