@@ -6,10 +6,8 @@
 using namespace std;
 const ll inf=LLONG_MAX;
 const ll mod=1e9+7;
-int n,k,s;
-map<int,int> dem;
-int a[1000005];
-ll ans;
+int a,b,n;
+int maxMoney;
 kien()
 {
     // if(fopen(".inp","r"))
@@ -20,20 +18,18 @@ kien()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    cin>>n>>k;
-    for(int i=0;i<n;i++)
+    cin>>n>>a>>b;
+    int s=0;
+    s=(n/b)*b;
+    int base=s;
+    maxMoney=s;
+    while(base-b>=0)
     {
-        cin>>a[i];
-        a[i]=(a[i]%k);
+        s-=b;
+        base-=b;
+        while(s+a<=n)
+            s+=a;
+        maxMoney=max(maxMoney,s);
     }
-    // for(int i=0;i<n;i++) cout<<a[i]<<" ";
-    // cout<<-5%3;
-    dem[0]++;
-    for(int i=0;i<n;i++)
-    {
-        s=1ll*(s+a[i])%k;
-        ans+=dem[s];
-        dem[s]++;
-    }
-    cout<<ans;
+    cout<<maxMoney;
 }

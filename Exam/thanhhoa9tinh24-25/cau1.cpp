@@ -6,10 +6,7 @@
 using namespace std;
 const ll inf=LLONG_MAX;
 const ll mod=1e9+7;
-int n,k,s;
-map<int,int> dem;
-int a[1000005];
-ll ans;
+ll a,b,c,d;
 kien()
 {
     // if(fopen(".inp","r"))
@@ -20,20 +17,11 @@ kien()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    cin>>n>>k;
-    for(int i=0;i<n;i++)
-    {
-        cin>>a[i];
-        a[i]=(a[i]%k);
-    }
-    // for(int i=0;i<n;i++) cout<<a[i]<<" ";
-    // cout<<-5%3;
-    dem[0]++;
-    for(int i=0;i<n;i++)
-    {
-        s=1ll*(s+a[i])%k;
-        ans+=dem[s];
-        dem[s]++;
-    }
-    cout<<ans;
+    cin>>a>>b>>c>>d;
+    if(a<b) swap(a,b);
+    if(a<c) swap(a,c);
+    if(a<d) swap(a,d);
+    if(b<c) swap(b,c);
+    if(b<d) swap(b,d);
+    cout<<b*min(c,d);
 }
