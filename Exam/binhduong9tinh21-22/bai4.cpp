@@ -8,11 +8,11 @@ using namespace std;
 // const ll mod=1e9+7;
 int n, ans = 1;
 pair<int, int> a[1005];
-bool compare(pair<int, int> a, pair<int, int> b)
+bool compare(pair<int, int> a, pair<int, int> b)    //sort để lấy thời gian kết thúc muộn nhất
 {
-    if (a.first == b.first)
-        return a.second < b.second;
-    return a.first < b.first;
+    if (a.second == b.second)
+        return a.first < b.first;
+    return a.second < b.second;
 }
 kien()
 {

@@ -20,16 +20,11 @@ kien()
     cout.tie(0);
     cin>>n>>a>>b;
     int s=0;
-    s=(n/b)*b;
-    int base=s;
-    maxMoney=s;
-    while(base-b>=0)
+    for(int i=0;i<=n/a;i++)
     {
-        s-=b;
-        base-=b;
-        while(s+a<=n)
-            s+=a;
-        maxMoney=max(maxMoney,s);
+        int r=n-i*a;
+        int s=r/b;
+        maxMoney=max(maxMoney,i*a+s*b);
     }
     cout<<maxMoney;
 }

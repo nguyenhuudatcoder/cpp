@@ -10,6 +10,7 @@ int n, m;
 string a, b;
 int k;
 int sub[1005][1005];
+int ans = -1, res[1005][1005];
 kien()
 {
     // if(fopen(".inp","r"))
@@ -27,10 +28,21 @@ kien()
         {
             if (a[i - 1] == b[j - 1])
                 sub[i][j] = sub[i - 1][j - 1] + 1;
-            sub[i][j] = max({sub[i][j - 1], sub[i][j], sub[i - 1][j]});
         }
-    if (sub[n][m] >= k)
-        cout << sub[n][m];
-    else
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= m; j++)
+            cout << sub[i][j] << " ";
+        cout << "\n";
+    }
+    for (int i = 1; i <= n; i++)
+        for (int j = 1; j <= m; j++)
+        {
+            res[i][j] = max(res[i][j-1],res[i-sub[i][j]][j-sub[i][j]]+sub[i][j]);
+            ans = max(ans, res[i][j]);
+        }
+    if (ans <k)
         cout << -1;
+    else
+        cout << ans;
 }
