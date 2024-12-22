@@ -1,55 +1,58 @@
-/// Suck Kiên's brain is very good to your brain
-/// Kiên will become Vegapunk
-/// Made by Nguyễn Hữu Đạt
-#include <bits/stdc++.h>
-#define int long long
-#define mod 1000000007
+///Made by Nguyễn Hữu Đạt
+#include<bits/stdc++.h>
+#define ll long long
+#define kien main
 using namespace std;
-int n;
-int a[200005];
-// vector<> b;
-int ans;
-int m[200005];
-int dem;
-int check(int l, int r, int x)
+const ll inf=LLONG_MAX;
+const ll mod=1e9+7;
+int n,a[1000005],x;
+ll ans;
+void ChatGPT()
 {
-    int pos=r+1;
-    while (l <= r)
+    for(int i=0;i<n;i++)
     {
-        int g = (l + r) / 2;
-        if (-m[g] >= x)
-            l = g + 1;
-        else
+        if(a[i]>0)
         {
-            pos = g;
-            r = g - 1;
+            int pos=i;
+            int l=0,r=i-1;
+            while(l<=r)
+            {
+                int m=(l+r)/2;
+                if(-a[m]>=a[i])
+                {
+                    l=m+1;
+                }
+                else
+                {
+                    r=m-1;
+                    pos=m;
+                }
+            }
+            ans+=i-pos;
         }
     }
-    return (n-pos-dem)/2;
 }
-main()
+kien()
 {
+    // if(fopen(".inp","r"))
+    // {
+    // 	freopen(".inp","r",stdin);
+    // 	freopen(".out","w",stdout);
+    // }
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    cin >> n;
-    for (int i = 0; i < n; i++)
+    cin>>n;
+    for(int i=0;i<n;i++)
     {
-        cin >> a[i];
+        cin>>a[i];
     }
-    int x;
-    for (int i = 0; i < n; i++)
+    for(int i=0;i<n;i++)
     {
-        cin >> x;
-        m[i] = a[i] - x;
-        if(m[i]>0)
-            dem++;
+        cin>>x;
+        a[i]=a[i]-x;
     }
-    sort(m, m + n);
-    // int k=0;
-    for (int i = 0; i < n; i++)
-    {
-        ans += check(i + 1, n - 1, m[i]);
-    }
-    cout << ans;
+    sort(a,a+n);
+    ChatGPT();
+    cout<<ans;
 }

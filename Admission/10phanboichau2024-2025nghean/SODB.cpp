@@ -5,25 +5,22 @@
 using namespace std;
 const ll inf=LLONG_MAX;
 const ll mod=1e9+7;
-int n;
-ll s,t[25],ans;
-void ChatGPT()
+int t,l,r;
+int uoc[1000005];
+int db[1000005];
+void make_div()
 {
-    ll l=1,r=1e18;
-    while(l<=r)
+    for(int i=1;i<=1e6;i++)
     {
-        ll m=(l+r)/2;
-        ll cake=0;
-        for(int i=0;i<n;i++)
-            cake+=m/t[i];
-        if(cake>=s)
+        for(int j=i;j<=1e6;j+=i)
         {
-            ans=m;
-            r=m-1;
+            uoc[j]++;
         }
-        else
-        l=m+1;
     }
+    for(int i=0;i<=1e6;i++)
+    {
+        db[i]=db[i-1]+bool(uoc[i]==4);
+    }    
 }
 kien()
 {
@@ -35,8 +32,11 @@ kien()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    cin>>s>>n;
-    for(int i=0;i<n;i++) cin>>t[i];
-    ChatGPT();
-    cout<<ans;
+    cin>>t;
+    make_div();
+    while(t--)
+    {
+        cin>>l>>r;
+        cout<<db[r]-db[l-1]<<'\n';
+    }
 }

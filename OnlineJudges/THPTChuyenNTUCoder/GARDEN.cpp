@@ -6,23 +6,23 @@ using namespace std;
 const ll inf=LLONG_MAX;
 const ll mod=1e9+7;
 int n;
-ll s,t[25],ans;
+ll L,a[100005],b[100005];
+ll ans=-inf;
 void ChatGPT()
 {
-    ll l=1,r=1e18;
+    ll l=0,r=1e18;
     while(l<=r)
     {
         ll m=(l+r)/2;
-        ll cake=0;
+        ll litter=L;
         for(int i=0;i<n;i++)
-            cake+=m/t[i];
-        if(cake>=s)
         {
-            ans=m;
-            r=m-1;
+            if(m>=a[i])
+            {
+                ll need=(m-a[i])/b[i];
+                
+            }
         }
-        else
-        l=m+1;
     }
 }
 kien()
@@ -35,8 +35,7 @@ kien()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    cin>>s>>n;
-    for(int i=0;i<n;i++) cin>>t[i];
-    ChatGPT();
-    cout<<ans;
+    cin>>n>>L;
+    for(int i=0;i<n;i++)  cin>>a[i]>>b[i];
+
 }

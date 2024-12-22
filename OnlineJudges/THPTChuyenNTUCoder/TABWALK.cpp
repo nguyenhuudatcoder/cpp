@@ -5,7 +5,7 @@
 using namespace std;
 const ll inf=LLONG_MAX;
 const ll mod=1e9+7;
-
+ll n;
 kien()
 {
     // if(fopen(".inp","r"))
@@ -16,5 +16,11 @@ kien()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-
+    cin>>n;
+    for(ll i=sqrt(n);i>=1;i--)
+        if(n%i==0)
+        {
+            cout<<i+n/i-2;
+            break;
+        }
 }
