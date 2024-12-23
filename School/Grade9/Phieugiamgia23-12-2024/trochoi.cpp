@@ -23,6 +23,9 @@ kien()
     sort(a,a+n);
     sort(b,b+n,greater<int>());
     for(int i=0;i<n;i++)
-        ans=min(ans,1ll*abs(a[i]+b[i]));
+    {
+        int x=lower_bound(b,b+n,-x)-b;
+        ans=min(ans,1ll*abs(a[i]+b[x]));
+    }
     cout<<ans;
 }
