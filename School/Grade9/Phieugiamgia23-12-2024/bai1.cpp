@@ -30,27 +30,14 @@ kien()
     cin.tie(0);
     cout.tie(0);
     cin >> n;
-    y = n % 100;
-    n /= 100;
-    x = n;
-    if (x > 18 || y > 18)
-    {
-        cout << 0;
-        exit(0);
+    int p=n/100;
+    int q=n%100;
+    if(p>q) swap(p,q);
+    if(q>18||q==0) cout<<0;
+    else{
+        if(p>9) cout<<p-9<<9;
+        else cout<<1<<p-1;
+        if(q>9) cout<<q-9<<9;
+        else cout<<1<<q-1;
     }
-    for (int i = 0; i <= 9; i++)
-    {
-        if (x-i < 10)
-            for (int j = 0; j <= 9; j++)
-            {
-                if (y-j < 10)
-                {
-                    ChatGPT(i, j);
-                }
-            }
-    }
-    if (ans == 10000)
-        cout << 0;
-    else
-        cout << ans;
 }
