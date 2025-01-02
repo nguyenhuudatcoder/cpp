@@ -5,7 +5,7 @@
 using namespace std;
 const ll inf = LLONG_MAX;
 const ll mod = 1e9 + 7;
-ll n, x;
+int n, a[100005], s, t;
 ll ans;
 kien()
 {
@@ -14,22 +14,22 @@ kien()
     // 	freopen(".inp","r",stdin);
     // 	freopen(".out","w",stdout);
     // }
-    ios_base::sync_with_stdio(0);
+    ios::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    cin >> n;
-    ll res = 0;
-    for (ll i = 0; i < n; i++)
+    cin >> n >> s;
+    for (int i = 0; i < n; i++)
+        cin >> a[i];
+    for(int i=0;i<n;i++)
     {
-        cin >> x;
-        if (x % 2 == 0)
-            res++;
-        else
+        int j=i;
+        int t=0;
+        while(t+a[j]<=s&&j<n)
         {
-            ans = max(ans, res);
-            res = 0;
+            ans++;
+            t+=a[j];
+            j++;
         }
     }
-    ans = max(ans, res);
     cout << ans;
 }

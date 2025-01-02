@@ -5,7 +5,21 @@
 using namespace std;
 const ll inf=LLONG_MAX;
 const ll mod=1e9+7;
-double a;int x;
+int a,b;
+
+int tonguoc(int n)
+{
+    int ans=1;
+    for(int i=2;i<=sqrt(n);i++)
+    {
+        if(n%i==0)
+        {
+            ans+=i;
+            if(i!=n/i)
+                ans+=n/i;
+        }
+    }return ans;
+}
 kien()
 {
     // if(fopen(".inp","r"))
@@ -16,7 +30,11 @@ kien()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    cin>>a>>x;
-    a=1.0*(pow(a,x));
-    cout<<fixed<<setprecision(2)<<a;
+    cin>>a>>b;
+    int ans=0;
+    for(int i=a;i<=b;i++)
+    {
+        if(tonguoc(i)>i)
+            ans++;
+    }cout<<ans;
 }

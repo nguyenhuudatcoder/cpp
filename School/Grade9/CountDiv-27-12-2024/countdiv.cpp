@@ -5,8 +5,7 @@
 using namespace std;
 const ll inf = LLONG_MAX;
 const ll mod = 1e9 + 7;
-ll n, x;
-ll ans;
+ll t, a, b, l, r;
 kien()
 {
     // if(fopen(".inp","r"))
@@ -17,19 +16,11 @@ kien()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    cin >> n;
-    ll res = 0;
-    for (ll i = 0; i < n; i++)
+    cin >> t;
+    while (t--)
     {
-        cin >> x;
-        if (x % 2 == 0)
-            res++;
-        else
-        {
-            ans = max(ans, res);
-            res = 0;
-        }
+        cin >> l >> r >> a >> b;
+        ll x = a / __gcd(a, b) * b;
+        cout << r / a - (l - 1) / a + r / b - (l - 1) / b - (r / x - (l - 1) / x) << "\n";
     }
-    ans = max(ans, res);
-    cout << ans;
 }

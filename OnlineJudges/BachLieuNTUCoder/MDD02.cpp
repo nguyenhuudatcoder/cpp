@@ -5,8 +5,9 @@
 using namespace std;
 const ll inf = LLONG_MAX;
 const ll mod = 1e9 + 7;
-ll n, x;
-ll ans;
+int n;
+int dem[30], res;
+char a, ans;
 kien()
 {
     // if(fopen(".inp","r"))
@@ -18,18 +19,16 @@ kien()
     cin.tie(0);
     cout.tie(0);
     cin >> n;
-    ll res = 0;
-    for (ll i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
-        cin >> x;
-        if (x % 2 == 0)
-            res++;
-        else
-        {
-            ans = max(ans, res);
-            res = 0;
-        }
+        cin >> a;
+        dem[a - 'a']++;
     }
-    ans = max(ans, res);
+    for (int i = 0; i <= 25; i++)
+        if (dem[i] > res)
+        {
+            res = dem[i];
+            ans = i + 'a';
+        }
     cout << ans;
 }

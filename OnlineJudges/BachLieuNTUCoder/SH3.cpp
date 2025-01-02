@@ -5,8 +5,26 @@
 using namespace std;
 const ll inf = LLONG_MAX;
 const ll mod = 1e9 + 7;
-ll n, x;
-ll ans;
+int n;
+bool ktnt(int n)
+{
+    if (n < 2)
+        return 0;
+    for (int i = 2; i <= sqrt(n); i++)
+        if (n % i == 0)
+            return 0;
+    return 1;
+}
+int tcs(int n)
+{
+    int s = 0;
+    while (n > 0)
+    {
+        s += (n % 10)*(n%10);
+        n /= 10;
+    }
+    return s;
+}
 kien()
 {
     // if(fopen(".inp","r"))
@@ -18,18 +36,14 @@ kien()
     cin.tie(0);
     cout.tie(0);
     cin >> n;
-    ll res = 0;
-    for (ll i = 0; i < n; i++)
+    int a = 2;
+    while (n > 0)
     {
-        cin >> x;
-        if (x % 2 == 0)
-            res++;
-        else
+        if (ktnt(tcs(a)))
         {
-            ans = max(ans, res);
-            res = 0;
+            n--;
         }
+        a++;
     }
-    ans = max(ans, res);
-    cout << ans;
+cout<<a-1;
 }

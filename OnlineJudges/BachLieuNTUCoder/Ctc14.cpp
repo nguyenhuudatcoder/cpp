@@ -5,7 +5,16 @@
 using namespace std;
 const ll inf=LLONG_MAX;
 const ll mod=1e9+7;
-double a;int x;
+int a,b;
+int dao(int n)
+{
+    int ans=0;
+    while(n>0)
+    {
+        ans=ans*10+n%10;
+        n/=10;
+    }return ans;
+}int ans;
 kien()
 {
     // if(fopen(".inp","r"))
@@ -16,7 +25,5 @@ kien()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    cin>>a>>x;
-    a=1.0*(pow(a,x));
-    cout<<fixed<<setprecision(2)<<a;
+    cin>>a>>b;for(int i=a;i<=b;i++)if(__gcd(i,dao(i))==1) ans++;cout<<ans;
 }
