@@ -6,7 +6,7 @@ using namespace std;
 const ll inf = LLONG_MAX;
 const ll mod = 1e9 + 7;
 ll n, k, s, x;
-unordered_map<ll, ll> dem;
+unordered_map<int, ll> dem;
 ll ans;
 kien()
 {
@@ -23,8 +23,7 @@ kien()
     for (int i = 0; i < n; i++)
     {
         cin >> x;
-        x = 1ll*((x % k) + k) % k;
-        s =1ll*(s+x)%k;
+        s =1ll*(s+x+k*1000000000)%k;
         dem[s]++;
     }
     for (auto i : dem)
