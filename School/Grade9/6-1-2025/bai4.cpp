@@ -1,43 +1,42 @@
-/// Made by Nguyễn Hữu Đạt
 #include <bits/stdc++.h>
-#define ll long long
-#define kien main
 using namespace std;
-const ll inf = LLONG_MAX;
-const ll mod = 1e9 + 7;
-int n;
-ll k, a[100005];
-int ans = -1;
-bool check(int dis)
+int n,k,a[100001];
+int maxSum(int arr[], int n, int k)
 {
-    for (int i = dis - 1; i < n; i++)
-        if (a[i] - a[i - dis] > k)
-            return 1;
-    return 0;
-}
-kien()
-{
-    // if(fopen(".inp","r"))
-    // {
-    // 	freopen(".inp","r",stdin);
-    // 	freopen(".out","w",stdout);
-    // }
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    cout.tie(0);
-    cin >> n >> k;
-    for (int i = 0; i < n; i++)
+    if (n < k)
     {
-        cin >> a[i];
-        a[i] = a[i - 1] + a[i];
+        return -1;
     }
-    for (int dis = 1; dis <= n; dis++)
-        if (check(dis)==1)
+    int res = 0;
+    for (int i = 0; i < k; i++) res += arr[i];
+    int curr_sum = res;
+    for (int i = k; i < n; i++)
         {
-            cout << ans;
-            exit(0);
+            curr_sum += arr[i] - arr[i - k];
+            res = max(res, curr_sum);
         }
-        else
-            ans = dis;
-    cout << ans;
+    return res;
+}
+int solve(int arr[], int n, int k)
+{
+    int max_len = 0, l = 0, r = n, m;
+    while (l <= r)
+        {
+             m = (l + r) / 2;
+             if (maxSum(arr, n, m) > k) r = m - 1;
+             else
+             {
+                  l = m + 1;
+                  max_len = m;
+            }
+    }
+    if(max_len==0) return -1;
+    else  return max_len;
+}
+int main()
+{
+    cin>>n>>k;
+    for(int i=0;i<n;i++)  cin>>a[i];
+    cout << solve(a, n, k);
+    return 0;
 }
