@@ -5,28 +5,8 @@
 using namespace std;
 const ll inf=LLONG_MAX;
 const ll mod=1e9+7;
-int n;
-int x,a;
-int tcs(int n)
-{
-    int s=0;
-    while(n>0)
-    {
-        s+=n%10;n/=10;
-    }return s;
-}
-int sum(int n)
-{
-    ll s=0;
-    for(int i=2;i<=sqrt(n);i++)
-    {
-        if(n%i==0)
-        {
-            s+=i;
-            if(i*i!=n)s+=i;
-        }
-    }return s;
-}
+int n,h;
+vector<int> a;
 kien()
 {
     // if(fopen(".inp","r"))
@@ -38,8 +18,13 @@ kien()
     cin.tie(0);
     cout.tie(0);
     cin>>n;
-    for(int i=0;i<n;i++){
-        cin>>a;a=tcs(a);
-        if(sum(a)<=a) x++;
-    }cout<<x;
+    for(int i=0;i<n;i++)
+    {
+        cin>>h;
+        if(a.empty()==1||h>a.back())a.push_back(h);
+        else{
+            int pos=lower_bound(a.begin(),a.end(),h)-a.begin();
+            a[pos]=h;
+        }
+    }cout<<a.size();
 }
