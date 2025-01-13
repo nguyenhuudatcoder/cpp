@@ -7,6 +7,14 @@ const ll inf=LLONG_MAX;
 const ll mod=1e9+7;
 int n;
 int x,a;
+int tcs(int n)
+{
+    int s=0;
+    while(n>0)
+    {
+        s+=n%10;n/=10;
+    }return s;
+}
 int sum(int n)
 {
     ll s=0;
@@ -31,7 +39,7 @@ kien()
     cout.tie(0);
     cin>>n;
     for(int i=0;i<n;i++){
-        cin>>a;
+        cin>>a;a=tcs(a);
         if(sum(a)<=a) x++;
     }cout<<x;
 }
