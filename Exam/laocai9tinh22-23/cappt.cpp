@@ -5,8 +5,8 @@
 using namespace std;
 const ll inf=LLONG_MAX;
 const ll mod=1e9+7;
-unordered_map<int,int> dem;
 int n,k,x;ll ans;
+int dem[10000005];
 kien()
 {
     // if(fopen(".inp","r"))
@@ -21,6 +21,7 @@ kien()
     while(n--)
     {
         cin>>x;
+        if(k-x>=0)
         ans+=dem[k-x];
         dem[x]++;
     }cout<<ans;
