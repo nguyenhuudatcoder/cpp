@@ -1,4 +1,3 @@
-///A game is our childhood
 ///Made by Nguyễn Hữu Đạt
 #include<bits/stdc++.h>
 #define ll long long
@@ -6,7 +5,10 @@
 using namespace std;
 const ll inf=LLONG_MAX;
 const ll mod=1e9+7;
-string s,str;
+int n;
+string s;
+ll ans;
+int dem[30];
 kien()
 {
     // if(fopen(".inp","r"))
@@ -17,9 +19,11 @@ kien()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    getline(cin,s);
-    getline(cin,str);
-    int m=s.find(str,0);
-    s.erase(m,str.size());
-    cout<<s;
+    cin>>n;cin>>s;
+    dem[s[0]-96]++;
+    for(int i=1;i<n;i++)
+    {
+        ans+=dem[s[i]-96];
+        dem[s[i]-96]++;
+    }cout<<ans;
 }
