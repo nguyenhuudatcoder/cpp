@@ -6,7 +6,7 @@ using namespace std;
 const ll inf = LLONG_MAX;
 const ll mod = 1e9 + 7;
 ll l,r,ans;
-int prime1[45];
+bool prime1[45];
 vector<ll> prime{2, 3, 5, 7, 11, 13, 17};
 ll luythua(ll a, ll b, ll c)
 {
@@ -16,6 +16,7 @@ ll luythua(ll a, ll b, ll c)
         if (b & 1)
             res = res * a % c;
         a = a * a % c;
+        b/=2;
     }
     return res;
 }
