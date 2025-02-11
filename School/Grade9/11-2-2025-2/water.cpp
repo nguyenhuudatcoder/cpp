@@ -5,7 +5,8 @@
 using namespace std;
 const ll inf=LLONG_MAX;
 const ll mod=1e9+7;
-ll n,a;
+int n;
+ll k,x,ans=inf;
 kien()
 {
     // if(fopen(".inp","r"))
@@ -16,7 +17,7 @@ kien()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    cin>>n>>a;
-    if(a&1)cout<<(a+1)/2;
-    else cout<<(n-a+2)/2;
+    cin>>n;
+    cin>>k;for(int i=0;i<n;i++){cin>>x;if(k%x==0)ans=min(ans,k/x);}
+    cout<<ans;
 }
