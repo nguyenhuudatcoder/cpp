@@ -20,16 +20,19 @@ kien()
     cout.tie(0);
     cin >> n >> k >> s;
     int l = 0, r = 0;
-    while (r < n)
+    while (r <= n)
     {
-        t += s[r];
         if (t >= k)
         {
-            ans += n - r;
+            ans += n - r+1;
             t -= s[l];
             l++;
         }
-        r++;
+        else
+        {
+            t += s[r];
+            r++;
+        }
     }
     cout << ans;
 }
