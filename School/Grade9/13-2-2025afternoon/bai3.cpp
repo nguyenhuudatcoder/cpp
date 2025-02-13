@@ -22,6 +22,7 @@ kien()
         cin >> a[i];
     sort(a, a + n);
     a[n] = INT_MAX;
+    a[-1]=INT_MIN;
     for (int i = 0; i < n; i++)
         if (a[i] != a[i - 1] && a[i] != a[i + 1])
         {
