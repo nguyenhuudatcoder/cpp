@@ -5,15 +5,8 @@
 using namespace std;
 const ll inf=LLONG_MAX;
 const ll mod=1e9+7;
-int n,d;
-ll a,b;
-ll ans;
-void ChatGPT()
-{
-    ll res=(a-b+d)/d;
-    ans+=res;
-    b+=res*d;
-}
+int n,a[1005];
+int ans;
 kien()
 {
     // if(fopen(".inp","r"))
@@ -24,11 +17,8 @@ kien()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    cin>>n>>d;
-    while(n--)
-    {
-        cin>>b;
-        if(a>=b)ChatGPT();
-        a=b;
-    }cout<<ans;
+    cin>>n;for(int i=0;i<n;i++)cin>>a[i];
+    for(int i=0;i<n-1;i++)
+            ans=max(ans,__gcd(a[i],a[i+1]));
+    cout<<ans;
 }
