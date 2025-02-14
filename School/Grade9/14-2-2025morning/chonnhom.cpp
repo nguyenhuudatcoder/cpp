@@ -21,3 +21,4 @@ kien()
     cin>>n;while(n--){cin>>s;sort(s.begin(),s.end());dem[s]++;}
     for(auto i:dem)cout<<i.first<<" "<<i.second<<"\n";
 }
+//
