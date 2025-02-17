@@ -1,50 +1,35 @@
-/// Made by Nguyễn Hữu Đạt
 #include <bits/stdc++.h>
-#define ll long long
-#define kien main
+#define int long long
+#define vip 1000005
+#define mod 1000000007
 using namespace std;
-const ll inf = LLONG_MAX;
-const ll mod = 1e9 + 7;
-int n, m;
-kien()
+int n, b[vip], a[vip], ans;
+main()
 {
-    // if(fopen(".inp","r"))
-    // {
-    // 	freopen(".inp","r",stdin);
-    // 	freopen(".out","w",stdout);
-    // }
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    cout.tie(0);
-    cin >> n >> m;
-    int a = 0;
-    int res = n;
-    // while (res > 0)
-    // {
-    //     a += res / m;
-    //     res /= m;
-    // }
-    if (m < 4)
-        while (res > 0)
+    cin >> n;
+    for (int i = 1; i <= n; i++)
+    {
+        cin >> a[i] >> b[i];
+    }
+    sort(a + 1, a + n + 1);
+    sort(b + 1, b + 1 + n);
+    int i = 1, j = 1;
+    while (i <= n && j <= n)
+    {
+        if (a[i] > b[j])
+            j++;
+        else if (a[i] == b[j])
         {
-            a += res / m;
-            res /= m;
+            i++;
+            j++;
+            ans++;
         }
-    else
-        for (int i = 1; i <= sqrt(m); i++)
+        else
         {
-            if (m % i == 0)
-            {
-                int b=0;
-                int j = m / i;
-                res = n;
-                while (res > 0)
-                {   
-                    b += res / j;
-                    res /= j;
-                }
-                a=max(a,b);
-            }
+            j++;
+            i++;
+            ans += 2;
         }
-    cout << a;
+    }
+    cout << ans;
 }

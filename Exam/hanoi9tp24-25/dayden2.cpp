@@ -35,26 +35,25 @@ void sub3() {
     b.push_back(0);
     for(int i = 1; i <= m; i++) {
         int L = max(1, x[i] - k);
-        int R = min(n, x[i] + k);
+        int R = min(n, x[i] + k) + 1;
         b.push_back(L);
         b.push_back(R);
     }
     for(int i = 1; i <= q; i++)
         b.push_back(p[i]);
     sort(b.begin(), b.end());
-    auto last = unique(b.begin(), b.end());
     for(int i = 1; i <= m; i++) {
         int L = max(1, x[i] - k);
-        L = lower_bound(b.begin(), last, L) - b.begin();
+        L = lower_bound(b.begin(), b.end(), L) - b.begin();
         int R = min(n, x[i] + k) + 1;
-        R = lower_bound(b.begin(), last, R) - b.begin();
+        R = lower_bound(b.begin(), b.end(), R) - b.begin();
         a[L]++;
         a[R]--;
     }
-    for(int i = 1; i <= 3e5; i++)
+    for(int i = 0; i <= 3e5; i++)
         a[i] += a[i - 1];
     for(int i = 1; i <= q; i++) {
-        int pos = lower_bound(b.begin(), last, p[i]) - b.begin();
+        int pos = lower_bound(b.begin(), b.end(), p[i]) - b.begin();
         if(a[pos] % 2)
             cout << "D\n";
         else
@@ -62,8 +61,8 @@ void sub3() {
     }
 }
 int32_t main() {
-    freopen("dayden.cpp","r",stdin);
-    freopen("dayden.cpp","w",stdout);
+    freopen("dayden.inp","r",stdin);
+    freopen("dayden.out","w",stdout);
     cin >> n >> m >> q >> k;
     for(int i = 1; i <= m; i++)
         cin >> x[i];
