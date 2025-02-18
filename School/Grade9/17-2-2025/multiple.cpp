@@ -4,9 +4,8 @@
 #define kien main
 using namespace std;
 const ll inf=LLONG_MAX;
-const ll mod=1e9+7;
-ll r,c;
-int odd[5]={1,3,5,7,9},even[5]={0,2,4,6,8};
+const ll mod=2023;
+int n,q;int ans,t=1;
 kien()
 {
     // if(fopen(".inp","r"))
@@ -17,10 +16,11 @@ kien()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    cin>>r>>c;
-    if(r&1)
+    cin>>n>>q;
+    for(int i=1;i<=n;i++)
     {
-        cout<<(r-1)/2*10+even[c-1];
+        ans=(ans+t)%mod;
+        t=t*q%mod;
     }
-    else cout<<(r-1)/2*10+odd[c-1];
+    cout<<ans;
 }

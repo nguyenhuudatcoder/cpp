@@ -1,35 +1,29 @@
 #include <bits/stdc++.h>
-#define int long long
-#define vip 1000005
-#define mod 1000000007
 using namespace std;
-int n, b[vip], a[vip], ans;
+int n, x, ans, d;
+bool ck(int n)
+{
+    while (n > 0)
+    {
+        if ((n % 10) % 2 == 0)
+            return 0;
+        n /= 10;
+    }
+    return 1;
+}
 main()
 {
     cin >> n;
-    for (int i = 1; i <= n; i++)
+    while (n--)
     {
-        cin >> a[i] >> b[i];
-    }
-    sort(a + 1, a + n + 1);
-    sort(b + 1, b + 1 + n);
-    int i = 1, j = 1;
-    while (i <= n && j <= n)
-    {
-        if (a[i] > b[j])
-            j++;
-        else if (a[i] == b[j])
+        cin >> x;
+        if (ck(x) == 0)
         {
-            i++;
-            j++;
-            ans++;
+            ans = max(ans, d);
+            d = 0;
         }
         else
-        {
-            j++;
-            i++;
-            ans += 2;
-        }
+            d++;
     }
-    cout << ans;
+    cout << max(ans, d);
 }
