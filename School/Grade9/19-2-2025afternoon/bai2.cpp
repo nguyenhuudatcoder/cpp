@@ -6,13 +6,14 @@ using namespace std;
 const ll inf = LLONG_MAX;
 const ll mod = 1e9 + 7;
 int n;
-bool snt[1000005];
+int snt[1000005];
 void make_sieve()
 {
-    for (int i = 2; i <= 1e3; i++)
+    for (int i = 2; i <= 1e6; i++)
         if (snt[i] == 0)
-            for (int j = i * i; j <= 1e6; j += i)
-                snt[j] = 1;
+            for (int j = i; j <= 1e6; j += i)
+                if(snt[j]==0)
+                snt[j] = i;
 }
 ll d;
 kien()
@@ -28,13 +29,12 @@ kien()
     cin >> n;
     make_sieve();
     for (int i = 2; i <= n; i++)
-        if (snt[i] == 0)
         {
-            int m = n;
-            while (m > 0)
+            int m = i;
+            while (m > 1)
             {
-                d += m / i;
-                m /= i;
+                d++;
+                m /= snt[m];
             }
         }
     cout<<d;
