@@ -1,12 +1,11 @@
 ///Made by Nguyễn Hữu Đạt
-
 #include<bits/stdc++.h>
 #define ll long long
 #define kien main
 using namespace std;
 const ll inf=LLONG_MAX;
 const ll mod=1e9+7;
-ll x,y,z;
+ll l,r;
 kien()
 {
     // if(fopen(".inp","r"))
@@ -17,7 +16,10 @@ kien()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    cin>>x>>y>>z;
-    x=x/__gcd(x,y)*y;
-    cout<<x/__gcd(x,z)*z;
+    cin>>l>>r;
+    ll a=sqrt(l);
+    if(a*a<l)l=a+1;
+    else l=a;
+    r=sqrt(r);
+    cout<<r-l+1;
 }
