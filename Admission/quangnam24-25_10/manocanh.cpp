@@ -6,7 +6,7 @@ using namespace std;
 const ll inf=LLONG_MAX;
 const ll mod=1e9+7;
 int m,n;
-ll v[1005][1005];
+ll v[1005][1005],u[1005][1005];
 kien()
 {
     // if(fopen(".inp","r"))
