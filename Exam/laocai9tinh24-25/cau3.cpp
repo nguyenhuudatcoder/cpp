@@ -16,6 +16,16 @@ void make_sieve()
             for(int j=i*i;j<=1e7;j+=i)
                 snt[j]=1;
 }
+int s[10000005];
+void make_9()
+{
+    for(int i=1;i<=1e7;i++)
+        s[i]=1;
+    for(int i=2;i<=sqrt(1e7);i++)
+        if(s[i]==1)
+            for(int j=i;j<=1e7;j+=i)
+                s[j]*=i;
+}
 void demuoc()
 {
     for(int i=1;i<=1e6;i++)
@@ -32,6 +42,11 @@ void sub1()
     cout<<d;
 }
 void sub2()
+{
+    make_9();
+    
+}
+void sub4()
 {demuoc();
     for(;l<=r;l++)
         if(uoc[l]==k)
