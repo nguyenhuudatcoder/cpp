@@ -5,7 +5,8 @@
 using namespace std;
 const ll inf = LLONG_MAX;
 const ll mod = 1e9 + 7;
-int n, x, d[10], ans;
+int m, n;
+ll a[2000005], x, ans = inf;
 kien()
 {
     // if(fopen(".inp","r"))
@@ -16,26 +17,16 @@ kien()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    cin >> n;
+    cin >> m >> n;
+    for (int i = 0; i < m; i++)
+        cin >> a[i];
+    sort(a, a + m);
     while (n--)
     {
         cin >> x;
-        d[x]++;
+        int p = lower_bound(a, a + m, x) - a;
+        ans = min({ans, abs(a[p] - x)});
+        if(p>1){ans=min(ans,abs(x - a[p - 1]));}
     }
-    ans += d[4];
-    int t = min(d[1], d[3]);
-    ans += t;
-    d[1] -= t;
-    d[3] -= t;
-    ans+=d[3];
-    ans += d[2] / 2;
-    d[2] %= 1;
-    if (d[2] > 0)
-    {
-        ans ++;
-        d[1] -= 2;
-    }
-    
-    ans += (d[1] + 3) / 4;
     cout << ans;
 }
