@@ -2,6 +2,7 @@
 #include<iostream>
 #include<ios>
 #include<cmath>
+#include<climits>
 #define ll long long
 #define kien main
 using namespace std;
@@ -25,13 +26,10 @@ kien()
             x++;
         else{
             s*=a/abs(a);
-            d+=abs(x)-1;
+            d+=abs(a)-1;
         }
     }
-    if(s<0)
-    {
-        if(x>0)d+=x;
-        else d+=2;
-    }
+    if(x>0)d+=x;
+    else if(s<0) d+=2;
     cout<<d;
 }
