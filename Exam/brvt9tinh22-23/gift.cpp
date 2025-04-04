@@ -1,11 +1,12 @@
 ///Made by Nguyễn Hữu Đạt
-#include<iostream>
-#include<ios>
-#include<climits>
-#include<map>
-#include<unordered_map>
-#include<array>
-#include<algorithm>
+#include<bits/stdc++.h>
+// #include<iostream>
+// #include<ios>
+// #include<climits>
+// #include<map>
+// #include<unordered_map>
+// #include<array>
+// #include<algorithm>
 #define ll long long
 #define kien main
 using namespace std;

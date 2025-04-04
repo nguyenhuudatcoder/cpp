@@ -1,9 +1,9 @@
 /// Made by Nguyễn Hữu Đạt
-#include <iostream>
-#include <ios>
-#include <climits>
-#include <array>
-#include <cmath>
+#include <bits/stdc++.h>
+// #include <ios>
+// #include <climits>
+// #include <array>
+// #include <cmath>
 #define ll long long
 #define kien main
 using namespace std;
