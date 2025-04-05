@@ -2,6 +2,7 @@
 #include <iostream>
 #include <ios>
 #include <array>
+#include<climits>
 #define ll long long
 #define kien main
 using namespace std;

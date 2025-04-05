@@ -1,24 +1,17 @@
 ///Made by Nguyễn Hữu Đạt
 #include<iostream>
 #include<ios>
+#include<climits>
 #include<array>
+#include<vector>
 #define ll long long
 #define kien main
 using namespace std;
 const ll inf=LLONG_MAX;
 const ll mod=1e9+7;
 int n;
-int a[10005];
-void get(int i)
-{
-    for(int j=i+1;j<n;j++)
-        if(a[j]>a[i])
-        {
-            cout<<a[j]<<' ';
-            return;
-        }
-    cout<<-1<<' ';
-}
+int a[100005];
+vector<int> d;
 kien()
 {
     // if(fopen(".inp","r"))
@@ -30,6 +23,20 @@ kien()
     cin>>n;
     for(int i=0;i<n;i++)
         cin>>a[i];
+    for(int i=n-1;i>=0;i--)
+    {
+        while(d.empty()==0&&d.back()<=a[i])
+            d.pop_back();
+        if(d.empty()){
+            d.push_back(a[i]);
+            a[i]=-1;
+        }
+        else 
+        {
+            d.push_back(a[i]);
+            a[i]=d[d.size()-2];
+        }
+    }
     for(int i=0;i<n;i++)
-        get(i);
+        cout<<a[i]<<' ';
 }
