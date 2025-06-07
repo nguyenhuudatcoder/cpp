@@ -23,7 +23,7 @@ void make_sieve()
                 if(snt[j]==0)
                     snt[j]=i;  
 }
-void ptich(int n)
+void ptich(int n,int i)
 {
     for(int i=2;i<=sqrt(n);i++)
         while(n%i==0)
@@ -31,19 +31,17 @@ void ptich(int n)
             d[i]++;
             n/=i;
         }
+    int check=0;
     while(n>1){
         d[snt[n]]++;
+        if(d[snt[n]]&1)
+            check++;
+        else check--;
         n/=snt[n];
     }
-}
-void ChatGPT(int i)
-{
-    for(auto j:d)
-        if(j.second&1){
-            save[i]=1;
-            return;
-        }
-    dem++;
+    if(check>0)
+        save[i]=1;
+    else dem++;
 }
 kien()
 {
@@ -57,8 +55,7 @@ kien()
     make_sieve();
     for(int i=0;i<n;i++){
         cin>>a[i];
-        ptich(a[i]);
-        ChatGPT(i);
+        ptich(a[i],i);
     }
     cout<<dem<<'\n';
     for(int i=0;i<n;i++)

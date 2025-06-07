@@ -7,7 +7,7 @@
 using namespace std;
 const ll inf=LLONG_MAX;
 const ll mod=1e9+7;
-int n,m,a[50];
+int n,m,a[50],p;
 bool t[50];
 bool Sum()
 {
@@ -22,7 +22,7 @@ void op()
         cout<<t[i];
     cout<<"\n";
 }
-void ChatGPT(int d)
+void backtrack(int d)
 {
     // if(p==n+1) return;
     if(Sum())
@@ -31,17 +31,25 @@ void ChatGPT(int d)
             cout<<t[i];
         exit(0);
     }
-    for(int i=0;i<n;i++)
+    for(int i=p;i<n;i++)
     {
+        p=i;
         if(t[i]==0)
         {
             t[i]=1;
-            ChatGPT(d+1);
+            backtrack(d+1);
+            t[i]=0;
         }
         // op();
-        t[i]=0;
     }
 }   
+void bitmask()
+{
+    for(int mask=0;;mask++)
+    {
+        
+    }
+}
 kien()
 {
     // if(fopen(".inp","r"))
@@ -54,5 +62,5 @@ kien()
     for(int i=0;i<n;i++)
         cin>>a[i];
     cin>>m;
-    ChatGPT(0);
+    backtrack(0);
 }

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1744639411 source:d:\bi\cpp\codeblock\debug\main.cpp
+	<iostream>
+	<climits>
+	<algorithm>
+

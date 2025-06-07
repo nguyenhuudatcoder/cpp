@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1749203534 source:d:\bi\cpp\admission\laocai25-26_10\cau1.cpp
+	<iostream>
+
+1749203534 source:d:\bi\cpp\admission\laocai25-26_10\cau2.cpp
+	<iostream>
+
+1749204021 source:d:\bi\cpp\admission\laocai25-26_10\cau3.cpp
+	<iostream>
+	<cmath>
+
+1749203777 source:d:\bi\cpp\admission\laocai25-26_10\cau4.cpp
+	<iostream>
+	<algorithm>
+
+1749204010 source:d:\bi\cpp\admission\laocai25-26_10\cau5.cpp
+	<iostream>
+	<algorithm>
+
+1584205420 source:d:\bi\cpp\admission\laocai25-26_10\main.cpp
+	<iostream>
+
+1749217240 source:d:\bi\cpp\admission\laocai25-26_10\cau5__good.cpp
+	<iostream>
+	<algorithm>
+

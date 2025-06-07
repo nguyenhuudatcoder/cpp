@@ -1,48 +1,26 @@
-///Made by Nguyễn Hữu Đạt
-#include<bits/stdc++.h>
-// #include<ios>
-// #include<climits>
-// #include<array>
-// #include<cmath>
-// #include<algorithm>
-// #include<map>
-// #include<unordered_map>
+/// Made by Nguyễn Hữu Đạt
+#include <iostream>
+#include <climits>
 #define ll long long
 #define kien main
 using namespace std;
-const ll inf=LLONG_MAX;
-const ll mod=1e9+7;
-int n;
-int a[200005];
-void good()
+const ll inf = LLONG_MAX;
+const ll mod = 1e9 + 7;
+int n, x;
+int uoc[1000005];
+int d[1000005], ans = 1;
+void make_div()
 {
-    cin>>n;
-    int ans=1;
-    for(int i=0;i<n;i++)
-        cin>>a[i];
-    for(int i=1;i<n;i++)
-        for(int j=0;j<i;j++)
-            ans=max(ans,__gcd(a[i],a[j]));
-    cout<<ans;
-}
-int d[1000005];
-void bad()
-{
-    int ans=1;
-    cin>>n;
-    for(int i=0;i<n;i++){
-        cin>>a[i];
-        d[a[i]]++;
-    }
-    for(int i=2;i<=1e6;i++){
-        int dem=0;
-        for(int j=i;j<=1e6;j+=i){
-            dem+=d[j];
-            if(dem>1)
-                ans=i;
+    for (int i = 2; i <= 1e6; i++)
+        for (int j = i, c = 0; j <= 1e6; j += i)
+        {
+            c += d[j];
+            if (c > 1)
+            {
+                ans = i;
+                break;
+            }
         }
-    }
-    cout<<ans;
 }
 kien()
 {
@@ -51,6 +29,13 @@ kien()
     // 	freopen(".inp","r",stdin);
     // 	freopen(".out","w",stdout);
     // }
-    // cin.tie(0)->sync_with_stdio(0);
-    bad();
+    cin.tie(0)->sync_with_stdio(0);
+    cin >> n;
+    while (n--)
+    {
+        cin >> x;
+        d[x]++;
+    }
+    make_div();
+    cout << ans;
 }

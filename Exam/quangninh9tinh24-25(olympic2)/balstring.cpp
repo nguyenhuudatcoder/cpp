@@ -1,13 +1,17 @@
 ///Made by Nguyễn Hữu Đạt
 #include<iostream>
 #include<climits>
+#include<map>
+#include<unordered_map>
 #define ll long long
-#include<cmath>
 #define kien main
 using namespace std;
 const ll inf=LLONG_MAX;
 const ll mod=1e9+7;
-int n,k;int h[100005];ll a[100005];
+string s;
+int a[1000005];
+ll ans;
+unordered_map<int,int>d;
 kien()
 {
     // if(fopen(".inp","r"))
@@ -16,13 +20,18 @@ kien()
     // 	freopen(".out","w",stdout);
     // }
     cin.tie(0)->sync_with_stdio(0);
-    cin>>n>>k;
-    for(int i=1;i<=n;i++)cin>>h[i];
-    for(int i=2;i<=n;i++)
+    cin>>s;
+    for(int i=0;i<s.size();i++)
+        if(s[i]=='0')
+            a[i]=-1;
+        else a[i]=1;
+    a[-1]=0;
+    d[0]++;
+    for(int i=0;i<s.size();i++)
     {
-        a[i]=inf;
-        for(int j=i-1;j>=max(1,i-k);j--)
-            a[i]=min(a[i],a[j]+abs(h[i]-h[j]));
+        a[i]+=a[i-1];
+        ans+=d[a[i]];
+        d[a[i]]++;
     }
-    cout<<a[n];
+    cout<<ans;
 }

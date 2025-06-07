@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1748404689 source:d:\bi\cpp\admission\hochiminh24-25_10\evtrip.cpp
+	<iostream>
+	<algorithm>
+
+1748406762 source:d:\bi\cpp\admission\hochiminh24-25_10\wordgame.cpp
+	<iostream>
+	<algorithm>
+
+1748487252 source:d:\bi\cpp\admission\hochiminh24-25_10\blockopt.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+
